@@ -12,7 +12,7 @@ client.on('message', msg => { // Message function
     if (!msg.content.startsWith('!'))  return; // It always has to starts with the prefix which is '!'
     
     if (msg.content.startsWith('!' + "ping")) { // When a player does '!ping'
-        msg.reply("Pong!") // The bot will say @Author, Pong!
+        msg.reply("answer!") // The bot will say @Author, Pong!
     }
 });
 
