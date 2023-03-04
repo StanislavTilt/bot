@@ -4,7 +4,7 @@ const client = new Client();
 
 
 client.on('ready', () => {
-    console.log("READY!");
+    console.log("READY!"); // asdsadas
 });
 
 client.on('message', msg => { // Message function
