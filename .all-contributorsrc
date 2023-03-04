@@ -1,0 +1,51 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "stanislav.tilt",
+      "name": "Stas",
+      "profile": "https://github.com/StanislavTilt",
+      "contributions": [
+        "code",
+        "doc",
+        "maintenance",
+        "projectManagement",
+        "ideas",
+        "design",
+        "example",
+        "review",
+        "tutorial",
+        "content",
+        "test"
+      ]
+    },
+    {
+        "login": "vyunner",
+        "name": "Slava",
+        "profile": "https://github.com/vyunner",
+        "contributions": [
+          "code",
+          "doc",
+          "maintenance",
+          "projectManagement",
+          "ideas",
+          "design",
+          "example",
+          "review",
+          "tutorial",
+          "content",
+          "test"
+        ]
+    },
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "discord-mafia-bot",
+  "projectOwner": "stanislav.tilt",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "skipCi": true
+}
