@@ -1,7 +1,9 @@
 const { Client } = require("discord.js");
 const config = require("./config.json");
 const client = new Client();
-
+require('dotenv').config()
+const DatabaseConnection = require('./database/connection');
+const db = new DatabaseConnection(process.env.DATABASE_URI);
 
 client.on('ready', () => {
     console.log("READY!"); // asdsadas
