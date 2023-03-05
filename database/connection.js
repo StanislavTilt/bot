@@ -22,14 +22,20 @@ class DatabaseConnection {
 
         try {
             this.connection.connect()
+            this.listDatabases(this.connection)
             console.log('db connection succeed');
         }
         catch (e) {
-            this.connection.close();
             console.log('db connection failed');
-            console.log(e.message);
         }
     }
+
+    listDatabases(client){
+        this.databasesList = client.db().admin().listDatabases();
+
+        console.log("Databases:");
+        this.databasesList.databases.forEach(db => console.log(` - ${db.name}`));
+    };
 
     static getInstance() {
         return this._instance;

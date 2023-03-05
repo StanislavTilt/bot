@@ -7,7 +7,16 @@ module.exports = async (client, message) => {
 
     if (message.content.match(new RegExp(`^<@!?${client.user.id}>( |)$`))) return message.channel.send(`no command`)
     if (!message.content.startsWith(process.env.PREFIX)) return;
-    let commandfile = client.commands.get(cmd) || client.commands.get(client.aliases.get(cmd))
-    if (commandfile) commandfile.run(client, message, args)
+
+    try
+    {
+        let commandfile = client.commands.get(cmd) || client.commands.get(client.aliases.get(cmd))
+        if (commandfile) commandfile.run(client, message, args)
+    }
+    catch
+    {
+        message.channel.send('wrong command');
+    }
+
 }
 
