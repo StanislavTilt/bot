@@ -1,5 +1,4 @@
 const { Client } = require("discord.js");
-const config = require("./config.json");
 const client = new Client();
 require('dotenv').config()
 const DatabaseConnection = require('./database/connection');
@@ -18,4 +17,4 @@ client.on('message', msg => { // Message function
     }
 });
 
-client.login(config["Bot_Info"].token);
+client.login(process.env.BOT_TOKEN);
