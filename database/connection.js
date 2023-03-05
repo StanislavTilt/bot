@@ -31,10 +31,6 @@ class DatabaseConnection {
         }
     }
 
-    isConnected() {
-        return this.connection.db("admin").command({ ping: 1 });
-    }
-
     static getInstance() {
         return this._instance;
     }
