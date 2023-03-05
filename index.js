@@ -1,19 +1,14 @@
-const { Client } = require("discord.js");
-const config = require("./config.json");
-const client = new Client();
-
-
-client.on('ready', () => {
-    console.log("READY!"); // asdsadas
+const { Client, Collection } = require("discord.js");
+const client = new Client({
+    partials: ['MESSAGE', 'CHANNEL', 'REACTION'],
 });
+require('dotenv').config() ;
+// const DatabaseConnection = require('./database/connection');
+// const db = new DatabaseConnection(process.env.DATABASE_URI);
 
-client.on('message', msg => { // Message function
-    if (msg.author.bot) return; // Ignore all bots
-    if (!msg.content.startsWith('!'))  return; // It always has to starts with the prefix which is '!'
-    
-    if (msg.content.startsWith('!' + "ping")) { // When a player does '!ping'
-        msg.reply("answer!") // The bot will say @Author, Pong!
-    }
-});
+client.commands = new Collection();
 
-client.login(config["Bot_Info"].token);
+["commands"].forEach(x => client[x] = new Collection());
+["command", "event"].forEach(x => require(`./handlers/${x}`)(client));
+
+client.login(process.env.BOT_TOKEN);
