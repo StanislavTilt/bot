@@ -2,9 +2,9 @@ const { Client, Collection } = require("discord.js");
 const client = new Client({
     partials: ['MESSAGE', 'CHANNEL', 'REACTION'],
 });
-require('dotenv').config()
-const DatabaseConnection = require('./database/connection');
-const db = new DatabaseConnection(process.env.DATABASE_URI);
+require('dotenv').config() ;
+// const DatabaseConnection = require('./database/connection');
+// const db = new DatabaseConnection(process.env.DATABASE_URI);
 
 client.commands = new Collection();
 
