@@ -10,6 +10,7 @@ module.exports = async (client, connectedObject) => {
         }
     });
 
+
     //TODO user add player role
 }
 

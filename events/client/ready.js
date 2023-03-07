@@ -12,6 +12,7 @@ module.exports = async (client) => {
   }
 
   console.log(`bot: ${client.user.tag}\nusers: ${client.users.cache.size}`); //channels: ${client.channels.cache.size}
+
   let statuses = [
       'dev mode',
   ]
