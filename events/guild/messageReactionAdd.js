@@ -2,7 +2,7 @@ const { MessageEmbed } = require('discord.js');
 
 module.exports = async (client, reaction, user) => {
 
-    reaction.message.channel.send('reaction added').catch(console.error);
+    // reaction.message.channel.send('reaction added').catch(console.error);
 
     const exampleEmbed = new MessageEmbed()
         .setColor(0x0099FF)
