@@ -1,4 +1,5 @@
 const { Client, Collection } = require("discord.js");
+
 const client = new Client({
     partials: ['MESSAGE', 'CHANNEL', 'REACTION'],
 });
