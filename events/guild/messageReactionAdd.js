@@ -1,4 +1,6 @@
 module.exports = async (client, reaction, user) => {
+    const { EmbedBuilder } = require('discord.js');
+
     reaction.message.channel.send('reaction added');
 
     const exampleEmbed = new EmbedBuilder()
