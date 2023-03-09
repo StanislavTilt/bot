@@ -1,9 +1,10 @@
+const { MessageEmbed } = require('discord.js');
+
 module.exports = async (client, reaction, user) => {
-    const { EmbedBuilder } = require('discord.js');
 
-    reaction.message.channel.send('reaction added');
+    // reaction.message.channel.send('reaction added').catch(console.error);
 
-    const exampleEmbed = new EmbedBuilder()
+    const exampleEmbed = new MessageEmbed()
         .setColor(0x0099FF)
         .setTitle('Some title')
         .setURL('https://discord.js.org/')
@@ -21,5 +22,5 @@ module.exports = async (client, reaction, user) => {
         .setTimestamp()
         .setFooter({ text: 'Some footer text here', iconURL: 'https://i.imgur.com/AfFp7pu.png' });
 
-    reaction.message.channel.send({ embeds: [exampleEmbed] });
+    reaction.message.channel.send({ embed: exampleEmbed }).catch(console.error)
 }
