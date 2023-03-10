@@ -1,26 +1,26 @@
-const { MessageEmbed } = require('discord.js');
+const {EmbedMessage} = require('discord.js');
 
 module.exports = async (client, reaction, user) => {
 
-    // reaction.message.channel.send('reaction added').catch(console.error);
+    const exampleEmbed = {
+        "title": "⠀Регистрация Game #1",
+        "description": "**Ведущий - свободно**",
+        "color": "#2d3035",
+        "fields": [
+            {
+                "name": " ",
+                "value": "**01 - свободно\n02 - свободно\n03 - свободно\n04 - свободно\n05 - свободно**",
+                "inline": true
+            },
+            {
+                "name": " ",
+                "value": "**06 - свободно\n07 - свободно\n08 - свободно\n09 - свободно\n10 - свободно**",
+                "inline": true
+            }
+        ],
+        "thumbnail": {url: "https://cdn.discordapp.com/attachments/1083613997066092584/1083621493252042782/warn.png"},
+        "image": {url: "https://cdn.discordapp.com/attachments/1083613997066092584/1083614061201199134/image.png"}
+    };
 
-    const exampleEmbed = new MessageEmbed()
-        .setColor(0x0099FF)
-        .setTitle('Some title')
-        .setURL('https://discord.js.org/')
-        .setAuthor({ name: 'Some name', iconURL: 'https://i.imgur.com/AfFp7pu.png', url: 'https://discord.js.org' })
-        .setDescription('Some description here')
-        .setThumbnail('https://i.imgur.com/AfFp7pu.png')
-        .addFields(
-            { name: 'Regular field title', value: 'Some value here' },
-            { name: '\u200B', value: '\u200B' },
-            { name: 'Inline field title', value: 'Some value here', inline: true },
-            { name: 'Inline field title', value: 'Some value here', inline: true },
-        )
-        .addFields({ name: 'Inline field title', value: 'Some value here', inline: true })
-        .setImage('https://i.imgur.com/AfFp7pu.png')
-        .setTimestamp()
-        .setFooter({ text: 'Some footer text here', iconURL: 'https://i.imgur.com/AfFp7pu.png' });
-
-    reaction.message.channel.send({ embed: exampleEmbed }).catch(console.error)
+    reaction.message.channel.send({embed: exampleEmbed}).catch(console.error)
 }
