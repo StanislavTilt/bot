@@ -1,13 +1,16 @@
 const config = require("../config/config.js");
 const superDjs = require("super-djs");
+const mongoose = require('mongoose');
 
-module.exports = (client) => {
+module.exports = async (client) => {
 	console.log(superDjs.colourText('[DATABASE] Connecting to MongoDB...', 'yellow'));
-	const mongo = process.env.MONGO || config.Handlers.MONGO;
-	
-	if (!mongo) {
-		console.warn("[WARN] A Mongo URI/URL isn't provided! (Not required)");
-	} else {
-		superDjs.connectMongoDB(mongo, true, superDjs.colourText('[DATABASE] Connected to MongoDB!', 'green'));	
-	};
+	await mongoose.connect(process.env.DATABASE_URI, {
+		keepalive: true,
+		useNewUrlParser: true,
+	});
+
+	if(mongoose.connect)
+	{
+		console.log(superDjs.colourText('[DATABASE] Connected to MongoDB!', 'green'));
+	}
 };

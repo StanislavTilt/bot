@@ -11,7 +11,8 @@ const client = new Client({
     GatewayIntentBits.GuildPresences,
     GatewayIntentBits.GuildMessageReactions,
     GatewayIntentBits.DirectMessages,
-    GatewayIntentBits.MessageContent
+    GatewayIntentBits.MessageContent,
+    GatewayIntentBits.GuildMembers,
   ],
   partials: [
     Partials.Channel,
@@ -50,7 +51,7 @@ client.events = new Collection();
 
 module.exports = client;
 
-["prefix", "application_commands", "modals", "events"].forEach((file) => {
+["prefix", "application_commands", "modals", "events", "mongoose"].forEach((file) => {
   require(`./handlers/${file}`)(client, config);
 });
 
