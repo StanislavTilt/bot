@@ -1,7 +1,7 @@
 @echo off
 
 echo Installing/updating bot dependencies.
-call npm i --loglevel=warn >NUL
+call npm i discord.js
 call npm i mongoose@latest
 call npm i dotenv
 echo.
