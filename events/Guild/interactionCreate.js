@@ -63,5 +63,13 @@ client.on('interactionCreate', async (interaction) => {
       console.error(e)
     };
   }
+
+  if (interaction.customId === 'player_button'){
+    await interaction.reply('Игрок')
+  }
+  if (interaction.customId === 'moderator_button'){
+    await interaction.reply('Ведущий')
+  }
+
 });
 
