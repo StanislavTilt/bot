@@ -1,5 +1,7 @@
 const {EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle} = require("discord.js");
 const globalConfig = require('../../../config/config');
+const user = require("../../../schemas/User");
+const game = require("../../../schemas/Game");
 
 module.exports = {
     config: {
@@ -20,7 +22,20 @@ module.exports = {
         const row = new ActionRowBuilder()
             .addComponents(player_button, moderator_button);
 
-        message.channel.send({embeds: [globalConfig.Embeds.REG_EMBED], components: [row] });
+        message.channel.send({embeds: [globalConfig.Embeds.REG_EMBED], components: [row] }).then(
+           async (sendedMessage) => {
+
+               let gameData = { MessageId: sendedMessage.id , LeadingId: '', Status: 'new' };
+
+                await game.findOne(gameData).then(data => {
+                    if(!data)
+                    {
+                        game.create(gameData);
+                    }
+                });
+               // message.channel.send('```game data:\n '+JSON.stringify(gameData)+'\n```')
+            }
+        )
 
         // message.guild.channels.create({name: 'GAME #', type: 4})
         //     .then(category => {
