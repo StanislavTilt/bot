@@ -90,7 +90,7 @@ module.exports = (client, config) => {
     return process.exit();
   };
 
-  const rest = new REST({ version: '10' }).setToken(config.Client.TOKEN || process.env.TOKEN);
+  const rest = new REST({ version: '10' }).setToken(config.Client.TOKEN || process.env.BOT_TOKEN);
 
   (async () => {
     console.log('[HANDLER] Started registering all the application commands.'.yellow);
